@@ -1,5 +1,5 @@
 @import '../../../mq.scss';
-.aboutus{
+.informacion{
     background-color: #f6f6f6;
 }
 .section-header{
@@ -111,21 +111,13 @@ p{
         }
 }
 
-.valoresTItle{
-    &::first-letter{
-        color: #e53935;
-        font-size: 50px;
-    }
+.textTItle{
+    text-align: center;
+    //&::first-letter{
+      //  color: #e53935;
+    font-size: 50px;
+    //}
 }
-.misionTItle{
-    &::first-letter{
-        color: #039BE5;
-        font-size: 50px;
-    }
-}
-.visionTItle{
-    &::first-letter{
-        color: #43A047;
-        font-size: 50px;
-    }
+.listado{
+    font-family: 'Dosis', sans-serif;
 }
