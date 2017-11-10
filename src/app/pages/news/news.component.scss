@@ -27,7 +27,7 @@ sans-serif;
   //background-image: linear-gradient(to right, $regal-blue, $san-juan);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100vh;
+  height: auto;
   font-family: $open-sans;
 }
 
@@ -41,15 +41,17 @@ h1 {
 }
 
 .row {
-  max-width: 900px;
+  max-width: auto;
   margin: 50px auto 0;
+  margin-bottom: 50px;
 }
 
 // Base styles
 .card {
   float: left;
   padding: 0 1.7rem;
-  width: 50%;
+  width: 30%;
+  height: 20%;
   .menu-content {
     @include cf;
     margin: 0;
