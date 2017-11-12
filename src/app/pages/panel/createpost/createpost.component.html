@@ -1,0 +1,16 @@
+<div class="body-blur">
+  <div class="section-header">
+    <h2>
+      Crear Post
+    </h2>
+  </div>
+  <div class="container">
+
+    <form [formGroup]="form">
+      <input #titulo formControlName="titulo" placeholder="Titulo..." type="text">
+      <app-tinymce #editor (onContentChanged)="logChange($event);" formControlName="editor"></app-tinymce>
+    </form>
+    <button class="button" (click)="goBack()">Atras</button>
+    <button type="button" (click)="patchValue()">Crear post</button>
+  </div>
+</div>
