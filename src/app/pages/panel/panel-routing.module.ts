@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PanelComponent } from "app/pages/panel/panel.component";
 import { EditpostComponent } from "app/pages/panel/editpost/editpost.component";
 import { CreatepostComponent } from 'app/pages/panel/createpost/createpost.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
     {
@@ -19,7 +20,8 @@ const routes: Routes = [
 
 @NgModule({
     imports: [
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+        ReactiveFormsModule 
     ]//,
     //exports: [RouterModule]
 })

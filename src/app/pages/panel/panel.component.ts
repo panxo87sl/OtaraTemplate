@@ -22,12 +22,12 @@ export class PanelComponent implements OnInit {
 
   EditPost() {
     this.showText = !this.showText;
-//    this.router.navigate(['/panel/edit_post']);
+    this.router.navigate(['/panel/edit_post']);
   }
 
   atras() {
     this.showText = !this.showText;
-//    this.router.navigate(['/panel']);
+    this.router.navigate(['/panel']);
   }
 
 }

@@ -32,7 +32,7 @@ export class CreatepostComponent implements OnInit {
       }
 //      @ViewChild('editor') editor: QuillEditorComponent
       ngOnInit() {
-        //this.form.controls['editor'].patchValue(`<p><span style="color: rgb(102, 185, 102);">asdasd</span></p>`)
+        this.form.controls['editor'].patchValue(`<p><span style="color: rgb(102, 185, 102);">asdasd</span></p>`)
       }
     
       patchValue() {
