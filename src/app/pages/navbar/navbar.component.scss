@@ -4,6 +4,7 @@
     z-index: 999;
     margin-bottom: 0;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.40), 0 6px 20px 0 rgba(0, 0, 0, 0.40);
+    min-height: 60px;
     @include mobile{
       box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.20), 0 1px 1px 0 rgba(0, 0, 0, 0.20);
     }
@@ -27,6 +28,7 @@ $dropDown       : false;
 }
 .navbar-brand>img {
   margin : 7px 14px;
+  margin-top: 15px;
   @include mobile{
     margin: 7px 10px 7px 0px;
   }
