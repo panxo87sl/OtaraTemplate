@@ -216,7 +216,7 @@ h1 {
   }
 }
 */
-
+@import '../../../mq.scss';
 .news{
   padding-top: 50px;
   padding-bottom: 50px;
@@ -339,4 +339,9 @@ h5 {
 
 .card-footer{
   text-align: center !important;
+}
+.card-general{
+  @include mobile{
+    padding-bottom: 15px;
+  }
 }
