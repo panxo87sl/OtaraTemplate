@@ -19,10 +19,11 @@ export class ContactService {
 //      .map(result => this.result = result.json());
 //  }
 
+/* en post se tiene que colocar la direccion de donde apunta el server de conexion */
   createPost(post: Post) {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    return this._http.post('/api/posts', JSON.stringify(post), options)
+    return this._http.post('http://localhost:80/api/posts', JSON.stringify(post), options)
       .map(result => this.result = result.json());
   }
 
