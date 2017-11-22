@@ -46,6 +46,8 @@ export class CreatepostComponent implements OnInit {
       .subscribe(newWork => {
         console.log("Succes!");
       });
+    this._myCommunicationService.emitChange(true);
+    this.router.navigate(['/panel']);
   }
 
   createPost() {
