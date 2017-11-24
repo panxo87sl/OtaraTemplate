@@ -19,6 +19,7 @@ export class CreatepostComponent implements OnInit {
 
   form: FormGroup;
   post: any = {};
+  selectedFiles: FileList;
 
   constructor(private router: Router, private _myCommunicationService: PanelService, fb: FormBuilder, private _contactService: ContactService) {
 
@@ -39,9 +40,14 @@ export class CreatepostComponent implements OnInit {
     this.showText = !this.showText;
   }
 
+  detectFiles(event) {
+    this.selectedFiles = event.target.files;
+  }
+
   patchValue() {
+    let file = this.selectedFiles.item(0)
     console.log(this.form.controls['editor'].value);
-    this.post = { titulo: this.form.controls['titulo'].value, contenido: this.form.controls['editor'].value };
+    this.post = { titulo: this.form.controls['titulo'].value, contenido: this.form.controls['editor'].value, file : this.selectedFiles.item(0) };
     this._contactService.createPost(this.post)
       .subscribe(newWork => {
         console.log("Succes!");
@@ -49,7 +55,7 @@ export class CreatepostComponent implements OnInit {
     this._myCommunicationService.emitChange(true);
     this.router.navigate(['/panel']);
   }
-
+  
   createPost() {
     this.showText = !this.showText;
     this.router.navigateByUrl('/create_post');
@@ -62,6 +68,7 @@ export class CreatepostComponent implements OnInit {
 
   }
 
+  
   logChange($event: any) {
     console.log($event);
   }

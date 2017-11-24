@@ -9,6 +9,9 @@
     <form [formGroup]="form">
       <input #titulo formControlName="titulo" placeholder="Titulo..." type="text">
       <input type="file" #fileInput placeholder="Upload file..." />
+      <label>
+        <input type="file" (change)="detectFiles($event)">
+     </label>
       <app-tinymce #editor (onContentChanged)="logChange($event);" formControlName="editor"></app-tinymce>
    </form>
     <button class="button" (click)="goBack()">Atras</button>
