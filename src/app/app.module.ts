@@ -23,6 +23,7 @@ import { UploadService } from 'app/services/uploads/shared/upload.service';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 export const firebaseConfig = {
+  ss:ss;
 }
 
 @NgModule({
