@@ -52,7 +52,10 @@
         </div>
       </div>
   </div> -->
-
+  <div *ngFor="let upload of uploads | async">
+    <h4>{{uploads.name}}+der</h4>
+    <img [src]="uploads.url">
+  </div>
   <div class="container">
       <div class="row mb-5">
           <div class="col-sm-6 col-md-4 card-general">

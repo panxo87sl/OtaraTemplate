@@ -18,6 +18,13 @@ import { TinymceModule } from 'angular2-tinymce';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import {AngularFireModule} from 'angularfire2';
+import { UploadService } from 'app/services/uploads/shared/upload.service';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+export const firebaseConfig = {
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +44,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
     TinymceModule.withConfig({
       selector: 'textarea',
       theme: 'modern',
@@ -53,6 +62,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   providers: [
     ContactService,
+    UploadService,
     PanelService
   ],
   bootstrap: [AppComponent]

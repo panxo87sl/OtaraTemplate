@@ -5,12 +5,17 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PanelService } from "app/services/panel.service";
 import { ContactService } from "app/services/contact.service";
 
+import { Upload } from 'app/services/uploads/shared/upload';
+import { UploadService } from 'app/services/uploads/shared/upload.service';
+
 @Component({
   selector: 'app-createpost',
   templateUrl: './createpost.component.html',
   styleUrls: ['./createpost.component.scss']
 })
 export class CreatepostComponent implements OnInit {
+  currentUpload: Upload;
+  
   showText: Boolean = true;
   public editorContent = `<h3>I am Example content</h3>`;
   public editorOptions = {
@@ -19,9 +24,9 @@ export class CreatepostComponent implements OnInit {
 
   form: FormGroup;
   post: any = {};
-  selectedFiles: FileList;
+  selectedFiles: FileList|null;
 
-  constructor(private router: Router, private _myCommunicationService: PanelService, fb: FormBuilder, private _contactService: ContactService) {
+  constructor(private upSvc: UploadService,private router: Router, private _myCommunicationService: PanelService, fb: FormBuilder, private _contactService: ContactService) {
 
     // Subscribe to the service event
     _myCommunicationService.changeEmitted$.subscribe(myMessage => {
@@ -45,14 +50,16 @@ export class CreatepostComponent implements OnInit {
   }
 
   patchValue() {
-    let file = this.selectedFiles.item(0)
+    //let file = this.selectedFiles.item(0)
     console.log(this.form.controls['editor'].value);
     this.post = { titulo: this.form.controls['titulo'].value, contenido: this.form.controls['editor'].value, file : this.selectedFiles.item(0) };
-    this._contactService.createPost(this.post)
-      .subscribe(newWork => {
-        console.log("Succes!");
-      });
-    this._myCommunicationService.emitChange(true);
+    //this._contactService.createPost(this.post)
+    //  .subscribe(newWork => {
+    //    console.log("Succes!");
+    //  });
+    //this._myCommunicationService.emitChange(true);
+    //this.currentUpload = new Upload(file);
+    this.upSvc.pushUpload(this.post)
     this.router.navigate(['/panel']);
   }
   
