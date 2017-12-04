@@ -60,6 +60,7 @@ export class CreatepostComponent implements OnInit {
     //this._myCommunicationService.emitChange(true);
     //this.currentUpload = new Upload(file);
     this.upSvc.pushUpload(this.post)
+    this._myCommunicationService.emitChange(true);
     this.router.navigate(['/panel']);
   }
   

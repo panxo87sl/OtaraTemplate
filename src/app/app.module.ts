@@ -21,9 +21,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {AngularFireModule} from 'angularfire2';
 import { UploadService } from 'app/services/uploads/shared/upload.service';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { environment } from 'environments/environment';
 
 export const firebaseConfig = {
-  ss:sss;
 }
 
 @NgModule({
@@ -45,7 +45,7 @@ export const firebaseConfig = {
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     TinymceModule.withConfig({
       selector: 'textarea',
