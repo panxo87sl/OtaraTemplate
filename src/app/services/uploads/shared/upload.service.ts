@@ -9,18 +9,20 @@ export class UploadService {
 
   basePath = 'uploads';
   uploadsRef: AngularFireList<Upload>;
-  uploads: Observable<Upload[]>;
+  uploads: Observable<any[]>;
+  //uploads: AngularFireList<any>;
 
   constructor(private db: AngularFireDatabase) { }
   
   getUploads() {
-    this.uploads = this.db.list(this.basePath).snapshotChanges().map((actions) => {
+    /*this.uploads = this.db.list(this.basePath).snapshotChanges().map((actions) => {
       return actions.map((a) => {
         const data = a.payload.val();
         const $key = a.payload.key;
         return { $key, ...data };
       });
-    });
+    });*/
+    this.uploads = this.db.list(this.basePath).valueChanges();
     return this.uploads;
   }
 
