@@ -22,7 +22,7 @@ export class UploadService {
         return { $key, ...data };
       });
     });*/
-    this.uploads = this.db.list(this.basePath).valueChanges();
+    this.uploads = this.db.list(this.basePath,ref => ref.limitToLast(3)).valueChanges();
     return this.uploads;
   }
 

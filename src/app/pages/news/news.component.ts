@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Upload } from 'app/services/uploads/shared/upload';
 import { UploadService } from 'app/services/uploads/shared/upload.service';
 import { Observable } from 'rxjs/Observable';
-import { AngularFireList } from 'angularfire2/database';
 
 @Component({
   selector: 'app-news',
@@ -11,12 +10,14 @@ import { AngularFireList } from 'angularfire2/database';
 })
 export class NewsComponent implements OnInit {
   //uploads: Observable<Upload[]>;
-  uploads: Observable<any[]>;
+  //uploads: Observable<any[]>;
+  uploadsObservable: Observable<any[]>;
   showSpinner = true;
   constructor(private upSvc: UploadService) { }
 
   ngOnInit() {
-    this.uploads = this.upSvc.getUploads();
+    this.uploadsObservable = this.upSvc.getUploads();
+   // this.coursesObservable = this.getCourses('/uploads');
     //this.uploads.subscribe(() => this.showSpinner = false);
   }
 

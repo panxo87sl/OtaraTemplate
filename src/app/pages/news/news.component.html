@@ -1,61 +1,38 @@
 <div class="news">
-<!--<div class="row">
-    <div class="example-1 card col-md-4">
-      <div class="wrapper">
-        <div class="date">
-          <span class="day">12</span>
-          <span class="month">Aug</span>
-          <span class="year">2016</span>
+    <!--  <div *ngFor="let uploads of uploadsObservable | async"> 
+            <div>
+                <!--<img src="{{uploads.url}}"/> --
+                <h4>{{uploads.name}}</h4>
+            </div>
+    </div> -->
+    <div class="container">
+
+        <div class="row mb-5">
+            <div *ngFor="let uploads of uploadsObservable | async">
+                <div class="col-sm-6 col-md-4 card-general">
+                    <div class="card card-inverse card-info">
+                        <!--<img class="card-img-top" src="http://success-at-work.com/wp-content/uploads/2015/04/free-stock-photos.gif"> -->
+                        <img src="{{uploads.url}}"/>
+                        <div class="card-block">
+                            <!-- <figure class="profile profile-inline">
+                          <img src="http://success-at-work.com/wp-content/uploads/2015/04/free-stock-photos.gif" class="profile-avatar" alt="">
+                      </figure>-->
+                            <h4 class="card-title">{{uploads.name}}</h4>
+                            <div class="card-text">
+                                {{uploads.contenido}}
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-info btn-sm">Leer Más</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="data">
-          <div class="content">
-            <span class="author">Jane Doe</span>
-            <h1 class="title"><a href="#">Everything You Need to Know About Gold Medals</a></h1>
-            <p class="text">Olympic gold medals contain only about 1.34 percent gold, with the rest composed of sterling silver.</p>
-          </div>
-          <!-- <input type="checkbox" id="show-menu" />--
-        </div>
-      </div>
     </div>
-    <div class="example-1 card col-md-4">
-        <div class="wrapper">
-          <div class="date">
-            <span class="day">12</span>
-            <span class="month">Aug</span>
-            <span class="year">2016</span>
-          </div>
-          <div class="data">
-            <div class="content">
-              <span class="author">Jane Doe</span>
-              <h1 class="title"><a href="#">Everything You Need to Know About Gold Medals</a></h1>
-              <p class="text">Olympic gold medals contain only about 1.34 percent gold, with the rest composed of sterling silver.</p>
-            </div>
-           <!-- <input type="checkbox" id="show-menu" />--
-          </div>
-        </div>
-      </div>
-      <div class="example-1 card col-md-4">
-        <div class="wrapper">
-          <div class="date">
-            <span class="day">12</span>
-            <span class="month">Aug</span>
-            <span class="year">2016</span>
-          </div>
-          <div class="data">
-            <div class="content">
-              <span class="author">Jane Doe</span>
-              <h1 class="title"><a href="#">Everything You Need to Know About Gold Medals</a></h1>
-              <p class="text">Olympic gold medals contain only about 1.34 percent gold, with the rest composed of sterling silver.</p>
-            </div>
-           <!-- <input type="checkbox" id="show-menu" />--
-          </div>
-        </div>
-      </div>
-  </div> -->
-  <div *ngFor="let upload of uploads | async">
-    <h4>{{uploads.name}} der</h4>
-  </div>
-  <div class="container">
+
+
+    <!--<div class="container">
       <div class="row mb-5">
           <div class="col-sm-6 col-md-4 card-general">
               <div class="card card-inverse card-info">
@@ -63,7 +40,7 @@
                   <div class="card-block">
                      <!-- <figure class="profile profile-inline">
                           <img src="http://success-at-work.com/wp-content/uploads/2015/04/free-stock-photos.gif" class="profile-avatar" alt="">
-                      </figure>-->
+                      </figure>--
                       <h4 class="card-title">Phasellus cursus quam sit amet tortor cursus</h4>
                       <div class="card-text">
                           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam odio mi, imperdiet nec aliquam mattis, convallis eu tellus.
@@ -80,7 +57,7 @@
                   <div class="card-block">
                     <!--  <figure class="profile profile-inline">
                           <img src="http://success-at-work.com/wp-content/uploads/2015/04/free-stock-photos.gif" class="profile-avatar" alt="">
-                      </figure> -->
+                      </figure> --
                       <h4 class="card-title">Phasellus cursus quam sit amet tortor cursus</h4>
                       <div class="card-text">
                           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam odio mi, imperdiet nec aliquam mattis, convallis eu tellus.
@@ -97,7 +74,7 @@
                   <div class="card-block">
                       <!--<figure class="profile profile-inline">
                           <img src="http://success-at-work.com/wp-content/uploads/2015/04/free-stock-photos.gif" class="profile-avatar" alt="">
-                      </figure>-->
+                      </figure>--
                       <h4 class="card-title">Phasellus cursus quam sit amet tortor cursus</h4>
                       <div class="card-text">
                           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam odio mi, imperdiet nec aliquam mattis, convallis eu tellus.
@@ -109,10 +86,10 @@
               </div>
           </div>
       </div>
-</div>
+</div> -->
 
-<div class="card-footer">
-    <button class="btn btn-info btn-sm">Ver anteriores</button>
-</div>
+    <div class="card-footer">
+        <button class="btn btn-info btn-sm">Ver anteriores</button>
+    </div>
 
 </div>
