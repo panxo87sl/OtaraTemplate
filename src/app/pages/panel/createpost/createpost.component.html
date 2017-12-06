@@ -8,11 +8,13 @@
 
     <form [formGroup]="form">
       <input #titulo formControlName="titulo" placeholder="Titulo..." type="text">
-      <input type="file" #fileInput placeholder="Upload file..." />
-      <label>
+      <div class="alert alert-danger" [hidden]="!alertaTitulo"> Ingrese algún titulo </div>
+      <!--<label> -->
         <input type="file" (change)="detectFiles($event)">
-     </label>
+        <div class="alert alert-danger" [hidden]="!alertaImagen"> Ingrese la imagen de la noticia </div>
+     <!--</label> -->
       <app-tinymce #editor (onContentChanged)="logChange($event);" formControlName="editor"></app-tinymce>
+      <div class="alert alert-danger" [hidden]="!alertaNoticia"> Ingrese el texto de la noticia </div>
    </form>
     <button class="button" (click)="goBack()">Atras</button>
     <button class="button" type="button" (click)="patchValue()">Crear post</button> 

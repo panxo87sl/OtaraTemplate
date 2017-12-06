@@ -17,6 +17,9 @@ export class CreatepostComponent implements OnInit {
   currentUpload: Upload;
   
   showText: Boolean = true;
+  alertaTitulo: Boolean = false;
+  alertaNoticia: Boolean = false;
+  alertaImagen: Boolean = false;
   public editorContent = `<h3>I am Example content</h3>`;
   public editorOptions = {
     placeholder: "insert content..."
@@ -50,18 +53,33 @@ export class CreatepostComponent implements OnInit {
   }
 
   patchValue() {
-    //let file = this.selectedFiles.item(0)
-    console.log(this.form.controls['editor'].value);
-    this.post = { titulo: this.form.controls['titulo'].value, contenido: this.form.controls['editor'].value, file : this.selectedFiles.item(0) };
-    //this._contactService.createPost(this.post)
-    //  .subscribe(newWork => {
-    //    console.log("Succes!");
-    //  });
-    //this._myCommunicationService.emitChange(true);
-    //this.currentUpload = new Upload(file);
-    this.upSvc.pushUpload(this.post)
+   //console.log(this.form.controls['editor'].value);
+    if(this.form.controls['titulo'].value != ''){
+      //this.alertaTitulo = !this.alertaTitulo;
+      this.alertaTitulo = false;
+    }else{
+      this.alertaTitulo = true;
+    }
+    if(this.form.controls['editor'].value != ''){
+      //this.alertaNoticia = !this.alertaNoticia;
+      this.alertaNoticia = false;
+    }else{
+      this.alertaNoticia = true;
+    }
+    if(this.selectedFiles == null){
+      this.alertaImagen = true;
+    }else{
+      console.log('hola');
+      this.alertaImagen = false;
+    }
+    console.log(this.selectedFiles.item(0));
+    if(this.form.controls['titulo'].value != '' && this.form.controls['editor'].value != '' && this.selectedFiles != null){
+      this.post = { titulo: this.form.controls['titulo'].value, contenido: this.form.controls['editor'].value, file : this.selectedFiles.item(0) };
+      
+    //this.upSvc.pushUpload(this.post)
     this._myCommunicationService.emitChange(true);
     this.router.navigate(['/panel']);
+    }
   }
   
   createPost() {
