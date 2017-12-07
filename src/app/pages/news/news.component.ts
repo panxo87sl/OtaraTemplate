@@ -16,7 +16,7 @@ export class NewsComponent implements OnInit {
   constructor(private upSvc: UploadService) { }
 
   ngOnInit() {
-    this.uploadsObservable = this.upSvc.getUploads();
+    this.uploadsObservable = this.upSvc.getUploadsLimit();
    // this.coursesObservable = this.getCourses('/uploads');
     //this.uploads.subscribe(() => this.showSpinner = false);
   }

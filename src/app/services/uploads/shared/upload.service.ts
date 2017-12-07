@@ -14,7 +14,7 @@ export class UploadService {
 
   constructor(private db: AngularFireDatabase) { }
   
-  getUploads() {
+  getUploadsLimit() {
     /*this.uploads = this.db.list(this.basePath).snapshotChanges().map((actions) => {
       return actions.map((a) => {
         const data = a.payload.val();
@@ -23,6 +23,18 @@ export class UploadService {
       });
     });*/
     this.uploads = this.db.list(this.basePath,ref => ref.limitToLast(3)).valueChanges();
+    return this.uploads;
+  }
+
+  getUploads() {
+    /*this.uploads = this.db.list(this.basePath).snapshotChanges().map((actions) => {
+      return actions.map((a) => {
+        const data = a.payload.val();
+        const $key = a.payload.key;
+        return { $key, ...data };
+      });
+    });*/
+    this.uploads = this.db.list(this.basePath).valueChanges();
     return this.uploads;
   }
 

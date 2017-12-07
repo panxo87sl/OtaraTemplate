@@ -22,6 +22,7 @@ import {AngularFireModule} from 'angularfire2';
 import { UploadService } from 'app/services/uploads/shared/upload.service';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from 'environments/environment';
+import { PagerService } from 'app/services/pager.service';
 
 export const firebaseConfig = {
 }
@@ -64,7 +65,8 @@ export const firebaseConfig = {
   providers: [
     ContactService,
     UploadService,
-    PanelService
+    PanelService,
+    PagerService
   ],
   bootstrap: [AppComponent]
 })
