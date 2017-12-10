@@ -5,10 +5,15 @@
                 <h4>{{uploads.name}}</h4>
             </div>
     </div> -->
+    <div class="section-header">
+        <h2>
+          Noticias
+        </h2>
+    </div>
     <div class="container">
 
         <div class="row mb-5">
-            <div *ngFor="let uploads of uploadsObservable | async">
+            <div *ngFor="let uploads of uploadsObservable">
                 <div class="col-sm-6 col-md-4 card-general">
                     <div class="card card-inverse card-info">
                         <!--<img class="card-img-top" src="http://success-at-work.com/wp-content/uploads/2015/04/free-stock-photos.gif"> -->

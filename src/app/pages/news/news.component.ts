@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Upload } from 'app/services/uploads/shared/upload';
 import { UploadService } from 'app/services/uploads/shared/upload.service';
 import { Observable } from 'rxjs/Observable';
+import { Post } from 'app/classes/post';
 
 @Component({
   selector: 'app-news',
@@ -9,16 +10,16 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./news.component.scss']
 })
 export class NewsComponent implements OnInit {
-  //uploads: Observable<Upload[]>;
-  //uploads: Observable<any[]>;
-  uploadsObservable: Observable<any[]>;
+  //uploadsObservable: Observable<any[]>;
+  uploadsObservable: Array<Post>;
   showSpinner = true;
   constructor(private upSvc: UploadService) { }
 
   ngOnInit() {
-    this.uploadsObservable = this.upSvc.getUploadsLimit();
-   // this.coursesObservable = this.getCourses('/uploads');
-    //this.uploads.subscribe(() => this.showSpinner = false);
+    //this.uploadsObservable = this.upSvc.getUploadsLimit();
+    this.upSvc.getUploadsLimit().subscribe(res => {
+      this.uploadsObservable = res.reverse();
+    });
   }
 
 }

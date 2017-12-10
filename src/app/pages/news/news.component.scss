@@ -264,6 +264,7 @@ h5 {
   font-size: 1.28571429em;
   font-weight: 700;
   line-height: 1.2857em;
+  text-align: center;
 }
 
 .card-text {
@@ -344,5 +345,27 @@ h5 {
 .card-general{
   @include mobile{
     padding-bottom: 15px;
+  }
+}
+
+.section-header{
+  background: #fff;
+  text-align: center;
+  color: #272727;
+  //padding-top: 100px;
+  padding-bottom: 20px;
+  h2{
+      padding-bottom: 10px;
+      line-height: 40px;
+      position: relative;
+      display: inline-block;
+      font-size: 45px;
+      text-transform: uppercase;
+      margin-top: 15px;
+      margin-bottom: 0;
+      font-weight: 700;
+      @include mobile {
+          font-size: 35px;
+      }
   }
 }

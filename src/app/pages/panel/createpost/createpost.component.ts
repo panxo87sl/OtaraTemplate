@@ -74,9 +74,17 @@ export class CreatepostComponent implements OnInit {
     }
     console.log(this.selectedFiles.item(0));
     if(this.form.controls['titulo'].value != '' && this.form.controls['editor'].value != '' && this.selectedFiles != null){
-      this.post = { titulo: this.form.controls['titulo'].value, contenido: this.form.controls['editor'].value, file : this.selectedFiles.item(0) };
+      var today = new Date();
+      var dd = today.getDate();
+      var mm = today.getMonth()+1; //January is 0!    
+      var yyyy = today.getFullYear();
+      var hh = today.getHours();
+      var min = today.getMinutes();
+      var mil = today.getSeconds();
+      var fecha = dd+'/'+mm+'/'+yyyy+' '+hh+':'+min+':'+mil;
+      this.post = { titulo: this.form.controls['titulo'].value, contenido: this.form.controls['editor'].value, file : this.selectedFiles.item(0),fecha: fecha};
       
-    //this.upSvc.pushUpload(this.post)
+    this.upSvc.pushUpload(this.post)
     this._myCommunicationService.emitChange(true);
     this.router.navigate(['/panel']);
     }
