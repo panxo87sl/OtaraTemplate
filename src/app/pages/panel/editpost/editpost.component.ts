@@ -21,7 +21,8 @@ export class EditpostComponent implements OnInit {
     this.upSvc.getUploads()
     .subscribe(res => {
       this.posts = res.reverse();
-
+      console.log(this.posts);
+      
       // initialize to page 1
       this.setPage(1);
     });

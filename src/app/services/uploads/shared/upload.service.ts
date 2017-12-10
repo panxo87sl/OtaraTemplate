@@ -35,6 +35,7 @@ export class UploadService {
       });
     });*/
     this.uploads = this.db.list(this.basePath).valueChanges();
+    console.log(this.uploads.map.toString);
     return this.uploads;
   }
 
