@@ -7,6 +7,7 @@ export class Post {
     progress:number;
     name:string;
     url:string;
+    $key:string;
 
     constructor(file:File) {
         this.file = file;

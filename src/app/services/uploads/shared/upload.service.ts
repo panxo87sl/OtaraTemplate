@@ -34,9 +34,12 @@ export class UploadService {
         return { $key, ...data };
       });
     });*/
-    this.uploads = this.db.list(this.basePath).valueChanges();
-    console.log(this.uploads.map.toString);
-    return this.uploads;
+    //this.uploads = this.db.list(this.basePath).valueChanges();
+    this.uploads = this.db.list(this.basePath).snapshotChanges().map(uploads => {return uploads.map(uploads => ({key:uploads.key}))});
+    console.log(this.uploads);
+    return this.db.object(this.basePath).valueChanges();
+    //console.log(this.uploads.map);
+    //return this.uploads;
   }
 
   deleteUpload(upload: Upload) {

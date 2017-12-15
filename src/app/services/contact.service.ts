@@ -30,8 +30,8 @@ export class ContactService {
   editPost(post: Post) {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    return this._http.put('/api/post/' + post._id, JSON.stringify(post), options)
-      .map(result => this.result = result.json());
+    //return this._http.put('/api/post/' + post._id, JSON.stringify(post), options)
+   //   .map(result => this.result = result.json());
   }
 
   getExcel() {

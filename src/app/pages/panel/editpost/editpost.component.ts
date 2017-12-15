@@ -9,7 +9,8 @@ import { PagerService } from 'app/services/pager.service';
   styleUrls: ['./editpost.component.scss']
 })
 export class EditpostComponent implements OnInit {
-  posts: Array<Post>;
+  //posts: Array<Post>;
+  posts;
   // pager object
   pager: any = {};
 
@@ -18,10 +19,15 @@ export class EditpostComponent implements OnInit {
   constructor(private upSvc: UploadService, private pagerService: PagerService) { }
 
   ngOnInit() {
+    var arr = [];
     this.upSvc.getUploads()
     .subscribe(res => {
-      this.posts = res.reverse();
+     // this.posts = res.reverse();
+     this.posts = res;
+     
+     //this.posts = this.posts.reverse();
       console.log(this.posts);
+      
       
       // initialize to page 1
       this.setPage(1);
@@ -37,7 +43,8 @@ export class EditpostComponent implements OnInit {
     this.pager = this.pagerService.getPager(this.posts.length, page);
 
     // get current page of items
-    this.pagedItems = this.posts.slice(this.pager.startIndex, this.pager.endIndex + 1);
+   // this.pagedItems = this.posts.slice(this.pager.startIndex, this.pager.endIndex + 1);
+   this.pagedItems = this.posts.toString().slice(this.pager.startIndex, this.pager.endIndex + 1);
   }
 
 }
