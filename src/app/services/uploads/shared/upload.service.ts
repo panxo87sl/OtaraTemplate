@@ -26,6 +26,12 @@ export class UploadService {
     return this.uploads;
   }
 
+  getUploads1() {
+    this.uploads = this.db.list(this.basePath).valueChanges();   
+    console.log(this.uploads);
+    return this.uploads;
+  }
+
   getUploads() {
     /*this.uploads = this.db.list(this.basePath).snapshotChanges().map((actions) => {
       return actions.map((a) => {

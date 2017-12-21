@@ -24,7 +24,7 @@
                 </div>
               </div>
         </div>
-
+<!--
         <div class="col-xs-12 col-md-12 posts" *ngFor="let post of pagedItems">
           <div class="post-container">
             <div class="row">
@@ -33,14 +33,37 @@
               </div>
               <div class="col-xs-12 col-md-4 col-lg-4">
                 <p class="post-title">{{ post.fecha }}</p>
-                <p class="post-title">{{ post.$key }}der</p>
+                <p class="post-title">{{ post[key].titulo }}der</p>
               </div>
               <div class="col-xs-12 col-md-2 col-lg-2">
                 <a routerLink="/panel/editor/{{post._id}}" class="cta-btn btn2">editar</a>
               </div>
             </div>
           </div>
+        </div> -->
+        <div class="col-xs-12 col-md-12 posts" *ngFor="let posts of pagedItems">
+          <div class="post-container">
+            <div class="row">
+
+              <!--<div class="col-xs-12 col-md-12 posts" *ngFor="let key of keys"> -->
+
+              <div class="col-xs-12 col-md-6 col-lg-6">
+                <p class="post-title">der</p>
+              </div>
+              <div class="col-xs-12 col-md-4 col-lg-4">
+                <p class="post-title"></p>
+                <p class="post-title">der</p>
+              </div>
+              <div class="col-xs-12 col-md-2 col-lg-2">
+                <a routerLink="/panel/editor/der" class="cta-btn btn2">editar</a>
+              </div>
+
+<!--              </div> -->
+
+            </div>
+          </div>
         </div>
+
         <div class="col-md-12">
           <!-- pager -->
           <ul *ngIf="pager.pages && pager.pages.length" class="pagination">

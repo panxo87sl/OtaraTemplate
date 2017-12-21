@@ -11,6 +11,7 @@ import { PagerService } from 'app/services/pager.service';
 export class EditpostComponent implements OnInit {
   //posts: Array<Post>;
   posts;
+  keys: string[];
   // pager object
   pager: any = {};
 
@@ -23,15 +24,18 @@ export class EditpostComponent implements OnInit {
     this.upSvc.getUploads()
     .subscribe(res => {
      // this.posts = res.reverse();
-     this.posts = res;
-     
+     this.posts = res;     
      //this.posts = this.posts.reverse();
-      console.log(this.posts);
-      
-      
+      //console.log(this.posts);
+      console.log(JSON.stringify(this.posts,null,4));
+      this.keys = Object.keys(this.posts);
+      console.log(this.keys);
+      //console.log(JSON.stringify(this.posts[this.keys[6]].titulo))
+      //let algo = 
       // initialize to page 1
       this.setPage(1);
     });
+    
   }
 
   setPage(page: number) {
@@ -44,7 +48,8 @@ export class EditpostComponent implements OnInit {
 
     // get current page of items
    // this.pagedItems = this.posts.slice(this.pager.startIndex, this.pager.endIndex + 1);
-   this.pagedItems = this.posts.toString().slice(this.pager.startIndex, this.pager.endIndex + 1);
+   //this.pagedItems = this.posts.toString().slice(this.pager.startIndex, this.pager.endIndex + 1);
+   this.pagedItems = this.keys.slice(this.pager.startIndex, this.pager.endIndex + 1);;
   }
 
 }
