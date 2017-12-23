@@ -25,13 +25,7 @@ export class EditpostComponent implements OnInit {
     .subscribe(res => {
      // this.posts = res.reverse();
      this.posts = res;     
-     //this.posts = this.posts.reverse();
-      //console.log(this.posts);
-      console.log(JSON.stringify(this.posts,null,4));
-      this.keys = Object.keys(this.posts);
-      console.log(this.keys);
-      //console.log(JSON.stringify(this.posts[this.keys[6]].titulo))
-      //let algo = 
+      this.keys = Object.keys(this.posts).reverse();
       // initialize to page 1
       this.setPage(1);
     });
@@ -44,11 +38,11 @@ export class EditpostComponent implements OnInit {
     }
 
     // get pager object from service
-    this.pager = this.pagerService.getPager(this.posts.length, page);
+    //this.pager = this.pagerService.getPager(this.posts.length, page);
+    this.pager = this.pagerService.getPager(this.keys.length, page);
 
     // get current page of items
-   // this.pagedItems = this.posts.slice(this.pager.startIndex, this.pager.endIndex + 1);
-   //this.pagedItems = this.posts.toString().slice(this.pager.startIndex, this.pager.endIndex + 1);
+    //this.pagedItems = this.posts.slice(this.pager.startIndex, this.pager.endIndex + 1);
    this.pagedItems = this.keys.slice(this.pager.startIndex, this.pager.endIndex + 1);;
   }
 
