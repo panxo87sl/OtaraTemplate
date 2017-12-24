@@ -23,6 +23,7 @@ import { UploadService } from 'app/services/uploads/shared/upload.service';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from 'environments/environment';
 import { PagerService } from 'app/services/pager.service';
+import { EditorComponent } from './pages/panel/editor/editor.component';
 
 export const firebaseConfig = {
 }
@@ -38,7 +39,8 @@ export const firebaseConfig = {
     NewsComponent,
     PanelComponent,
     CreatepostComponent,
-    EditpostComponent
+    EditpostComponent,
+    EditorComponent
   ],
   imports: [
     BrowserModule,

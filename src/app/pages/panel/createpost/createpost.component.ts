@@ -69,10 +69,8 @@ export class CreatepostComponent implements OnInit {
     if(this.selectedFiles == null){
       this.alertaImagen = true;
     }else{
-      console.log('hola');
       this.alertaImagen = false;
     }
-    console.log(this.selectedFiles.item(0));
     if(this.form.controls['titulo'].value != '' && this.form.controls['editor'].value != '' && this.selectedFiles != null){
       var today = new Date();
       var dd = today.getDate();

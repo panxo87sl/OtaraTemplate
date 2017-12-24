@@ -11,6 +11,7 @@ export class UploadService {
   uploadsRef: AngularFireList<Upload>;
   uploads: Observable<any[]>;
   //uploads: AngularFireList<any>;
+  post: AngularFireList<any>;
 
   constructor(private db: AngularFireDatabase) { }
   
@@ -28,7 +29,7 @@ export class UploadService {
 
   getUploads1() {
     this.uploads = this.db.list(this.basePath).valueChanges();   
-    console.log(this.uploads);
+    //console.log(this.uploads);
     return this.uploads;
   }
 
@@ -42,10 +43,15 @@ export class UploadService {
     });*/
     //this.uploads = this.db.list(this.basePath).valueChanges();
     this.uploads = this.db.list(this.basePath).snapshotChanges().map(uploads => {return uploads.map(uploads => ({key:uploads.key}))});
-    console.log(this.uploads);
+    //console.log(this.uploads);
     return this.db.object(this.basePath).valueChanges();
     //console.log(this.uploads.map);
     //return this.uploads;
+  }
+
+  getPost(id){
+    //this.uploads = this.db.list(this.basePath+'/'+id).valueChanges();
+    return this.db.object(this.basePath+'/'+id).valueChanges();
   }
 
   deleteUpload(upload: Upload) {
@@ -100,5 +106,10 @@ export class UploadService {
   private deleteFileStorage(name: string) {
     const storageRef = firebase.storage().ref();
     storageRef.child(`${this.basePath}/${name}`).delete()
+  }
+
+  // Actualiza al editar algun post
+  updatePost(upload: Upload){
+    this.db.object(`${this.basePath}/`+upload.$key).update({titulo:upload.titulo,contenido:upload.contenido});
   }
 }

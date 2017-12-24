@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Post } from 'app/classes/post';
 import { UploadService } from 'app/services/uploads/shared/upload.service';
 import { PagerService } from 'app/services/pager.service';
+import { PanelService } from 'app/services/panel.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-editpost',
@@ -17,7 +19,7 @@ export class EditpostComponent implements OnInit {
 
   // paged items
   pagedItems: any[];
-  constructor(private upSvc: UploadService, private pagerService: PagerService) { }
+  constructor(private upSvc: UploadService, private pagerService: PagerService,private _myCommunicationService: PanelService,private router: Router) { }
 
   ngOnInit() {
     var arr = [];
@@ -44,6 +46,13 @@ export class EditpostComponent implements OnInit {
     // get current page of items
     //this.pagedItems = this.posts.slice(this.pager.startIndex, this.pager.endIndex + 1);
    this.pagedItems = this.keys.slice(this.pager.startIndex, this.pager.endIndex + 1);;
+  }
+
+  goBack(): void {
+    // Emit your event with message
+    this._myCommunicationService.emitChange(true);
+    this.router.navigate(['/panel']);
+
   }
 
 }
