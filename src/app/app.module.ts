@@ -24,6 +24,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from 'environments/environment';
 import { PagerService } from 'app/services/pager.service';
 import { EditorComponent } from './pages/panel/editor/editor.component';
+import { NoticiaComponent } from './pages/noticias/noticia/noticia.component';
+import { DetallenoticiaComponent } from './pages/noticias/detallenoticia/detallenoticia.component';
 
 export const firebaseConfig = {
 }
@@ -40,7 +42,9 @@ export const firebaseConfig = {
     PanelComponent,
     CreatepostComponent,
     EditpostComponent,
-    EditorComponent
+    EditorComponent,
+    NoticiaComponent,
+    DetallenoticiaComponent
   ],
   imports: [
     BrowserModule,
