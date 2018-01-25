@@ -13,13 +13,23 @@ export class NewsComponent implements OnInit {
   //uploadsObservable: Observable<any[]>;
   uploadsObservable: Array<Post>;
   showSpinner = true;
+  posts;
+  keys: string[];
   constructor(private upSvc: UploadService) { }
 
   ngOnInit() {
     //this.uploadsObservable = this.upSvc.getUploadsLimit();
-    this.upSvc.getUploadsLimit().subscribe(res => {
-      this.uploadsObservable = res.reverse();
-    });
+    
+    //this.upSvc.getUploadsLimit().subscribe(res => {
+    //  this.uploadsObservable = res.reverse();
+    //  console.log(this.uploadsObservable);
+    //});
+    this.upSvc.getUploadsLimit();
+    //.subscribe(res => {
+   //   this.posts = res;    
+   //    this.keys = Object.keys(this.posts).reverse();
+   //  });
+    console.log(this.upSvc.getUploadsLimit());
   }
 
 }

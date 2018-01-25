@@ -23,8 +23,15 @@ export class UploadService {
         return { $key, ...data };
       });
     });*/
-    this.uploads = this.db.list(this.basePath,ref => ref.limitToLast(3)).valueChanges();
-    return this.uploads;
+    //this.uploads = this.db.list(this.basePath,ref => ref.limitToLast(3)).valueChanges();
+    firebase.database().ref(this.basePath).limitToLast(3).on('value', function(snapshot) {      
+      //console.log(snapshot.val());
+      var datos = snapshot.val();
+      console.log(datos.val);
+      return snapshot.val();
+    });
+    //console.log(this.uploads);
+    //return this.uploads;
   }
 
   getUploads1() {
